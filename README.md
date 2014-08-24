@@ -11,7 +11,7 @@ An application that alerts users when they enter or leave predefined areas.
 3. Add geofences through the map interface
 
 
-**To set up GeoTrigger**
+**To use GeoTrigger**
 
 1. Launch the GeoTrigger mobile application
 2. Open your application settings menu
