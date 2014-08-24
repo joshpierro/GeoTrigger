@@ -10,7 +10,6 @@ An application that alerts users when they enter or leave predefined areas.
 2. [Add a table] (http://docs.cartodb.com/cartodb-editor.html#tables) to your CartoDB account called 'features'. 
 3. Add geofences through the map interface
 
-      Thats it!
 
 **To set up GeoTrigger**
 
@@ -20,3 +19,4 @@ An application that alerts users when they enter or leave predefined areas.
 4. Return to the map interface
 5. Click start
 
+    **Thats it!**
