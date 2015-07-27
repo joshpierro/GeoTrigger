@@ -20,3 +20,10 @@ An application that alerts users when they enter or leave predefined areas.
 5. Click start
 
     **Thats it!**
+
+
+**Road Map**
+
+1. Move Location Listener to background service
+2. Offline maps 
+3. Other data endpoints besides cartodb
