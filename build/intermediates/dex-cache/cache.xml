@@ -2,25 +2,18 @@
 <items version="2" >
 
     <item
-        jar="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
-        <dex dex="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/pre-dexed/debug/classes-9151651aae88ceacde869bd4e98d1b5ae68fd23d.jar" />
-    </item>
-    <item
-        jar="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/pre-dexed/debug/classes-b52c71fe0860e7b989e58e7665d50f732018497b.jar" />
-    </item>
-    <item
         jar="/home/pierro/software/adt-bundle-linux-x86_64-20140321/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
         <dex dex="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-b49d150bee7c666368205ca9ae6d93c8e30164fe.jar" />
+    </item>
+    <item
+        jar="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/pre-dexed/debug/classes-fe4130d88bf01f2bab278640a254daee28b47614.jar" />
     </item>
     <item
         jar="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
@@ -30,11 +23,32 @@
         <dex dex="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-82f837ed9cce141f55b1ff53d844c1cbb2563460.jar" />
     </item>
     <item
-        jar="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jar="/home/pierro/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit/retrofit/1.9.0/a681c044244d9fc375198588297a39ba78028423/retrofit-1.9.0.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/pre-dexed/debug/classes-fe4130d88bf01f2bab278640a254daee28b47614.jar" />
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/pre-dexed/debug/retrofit-1.9.0-78e930fb29b27915b4a7cc552ad43483cef12fae.jar" />
+    </item>
+    <item
+        jar="/home/pierro/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/pre-dexed/debug/gson-2.3.1-c65a80499e9b2d805311605205924a83e590d0fc.jar" />
+    </item>
+    <item
+        jar="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/pre-dexed/debug/classes-b52c71fe0860e7b989e58e7665d50f732018497b.jar" />
+    </item>
+    <item
+        jar="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="/home/pierro/Work/apps/GeoTrigger/app/build/intermediates/pre-dexed/debug/classes-9151651aae88ceacde869bd4e98d1b5ae68fd23d.jar" />
     </item>
 
 </items>

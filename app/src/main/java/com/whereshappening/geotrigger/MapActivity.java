@@ -1,6 +1,7 @@
 package com.whereshappening.geotrigger;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -12,10 +13,13 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.whereshappening.geotrigger.data.MapFeatureRequest;
 import com.whereshappening.geotrigger.utils.Utils;
 
 import java.text.DateFormat;
@@ -45,6 +49,8 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         mContext = getApplicationContext();
         setContentView(R.layout.activity_map);
 
+
+
         mRequestingLocationUpdates = false;
         setUpMapIfNeeded();
         mUtils = new Utils();
@@ -61,6 +67,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
                     startLocationUpdates();
                     mStartButton.setText(R.string.stop_label);
                     mRequestingLocationUpdates = true;
+
                 } else{
                     stopLocationUpdates();
                     mStartButton.setText(R.string.start_label);
@@ -168,7 +175,11 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         if (mLastLocation != null) {
             String lat = String.valueOf(mLastLocation.getLatitude());
             String lng = String.valueOf(mLastLocation.getLongitude());
-           // mUtils.MakeToast(mContext,lat + "," + lng);
+            mUtils.MakeToast(mContext, lat + "," + lng);
+
+            //check geotrigger
+           // int distance = 1000;
+          //  checkGeotrigger(mLastLocation.getLatitude(),mLastLocation.getLongitude(),distance);
 
         }
 
@@ -210,12 +221,52 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         mLastUpdateTime = DateFormat.getTimeInstance().format(new Date());
         String lat = String.valueOf(location.getLatitude());
         String lng = String.valueOf(location.getLongitude());
-        mUtils.MakeToast(mContext,lat + "," + lng);
         mCurrentLocation = location;
+
+        //if location is different - check geotrigger
+        if (mCurrentLocation.getLatitude() != mLastLocation.getLatitude() || mCurrentLocation.getLongitude() != mLastLocation.getLongitude()){
+            double latitude = mCurrentLocation.getLatitude();
+            double longitude = mCurrentLocation.getLongitude();
+            int distance = 1000;
+            checkGeotrigger( latitude,longitude,distance);
+        }
+
         updateMap();
     }
 
+
+    private void checkGeotrigger(double latitude, double longitude, int distance){
+        String query = String.format("SELECT cartodb_id id,name,st_asgeojson(the_geom),ST_Distance(ST_Transform(ST_SetSRID(ST_Point(%s, %s),4326),3785),ST_Transform(the_geom_webmercator,3785)) Distance FROM features WHERE ST_Distance(ST_Transform(ST_SetSRID(ST_Point(%s, %s),4326),3785),ST_Transform(the_geom_webmercator,3785)) < %s",Double.toString(longitude),Double.toString(latitude),Double.toString(longitude),Double.toString(latitude),distance);
+        new MapFeatureRequest().execute(query);
+    }
+
     private void updateMap() {
+
+        double latitude  = mCurrentLocation.getLatitude();
+        double longitude = mCurrentLocation.getLongitude();
+        LatLng latLng = new LatLng(latitude, longitude);
+
+        int mDistance = 1000;
+
+        mMap.clear();
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        mMap.addCircle(new CircleOptions()
+                .center(latLng)
+                .radius(10)
+                .strokeColor(Color.BLUE)
+                .strokeWidth(1)
+                .fillColor(0x7a00ff00));
+
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(16));
+        mMap.addCircle(new CircleOptions()
+                .center(latLng)
+                .radius(mDistance)
+                .strokeColor(Color.RED)
+                .strokeWidth(4)
+                .fillColor(0x7aff0000));
+
+
+
       /*  mLatitudeTextView.setText(String.valueOf(mCurrentLocation.getLatitude()));
         mLongitudeTextView.setText(String.valueOf(mCurrentLocation.getLongitude()));
         mLastUpdateTimeTextView.setText(mLastUpdateTime);*/
